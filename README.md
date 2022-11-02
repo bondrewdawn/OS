@@ -28,4 +28,4 @@
 
 ### OS Training Camp
 
-今天完成了Rust实验环境的配置。
+今天完成了Rust实验环境的配置。于此同时，开始完成rustlings的实验，目前已经完成1/3，在Rust的移动语义部分还是较为卡壳，因此还需要对Rust的move semantic进行进一步的学习以加深对移动语义的理解。
