@@ -35,3 +35,16 @@
 ### OS Training Camp
 
 今日进度：今天完成了Rustlings的enums，structs，options等小节，Rust中的errors handling较难。
+
+```rust
+fn main() -> Result<(), Box<dyn error::error>> {
+    let pretend_user_input = "32";
+    let x: i32 = pretend_user_input.parse()?;
+    println!("output={:?}", PositiveNonzeroInteger::new(x)?);
+    Ok(())
+}
+```
+
+There are two different possible `Result` types produced within `main()`, which are propagated using `?` operators.
+
+Under the hood, the `?` operator calls `From::from` on the error value to convert it to a boxed trait object, a `Box<dyn error::Error>`. This boxed trait object is polymorphic, and since all errors implement the `error::Error` trait, we can capture lots of different errors in one "Box" object.
