@@ -119,3 +119,9 @@ fn main() -> Result<(), Box<dyn error::error>> {
 There are two different possible `Result` types produced within `main()`, which are propagated using `?` operators.
 
 Under the hood, the `?` operator calls `From::from` on the error value to convert it to a boxed trait object, a `Box<dyn error::Error>`. This boxed trait object is polymorphic, and since all errors implement the `error::Error` trait, we can capture lots of different errors in one "Box" object.
+
+## Day 4 2022/11/4
+
+### Rustlings
+
+今天需要完成rustlings中的所有练习题，与此同时，截止到5号，完成rustlings的所有总结。
