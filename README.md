@@ -77,7 +77,29 @@ fn vec_map(v: &Vec<i32>) -> Vec<i32> {
 }
 ```
 
+在Rust中，对`string`进行操作，`trim()`用于删除空格，类似于Python中的`strip()` [link to strings3](./rustlings/exercises/strings/strings3.rs)
 
+```rust
+fn trim_me(input: &str) -> String {
+    input.trim().to_string()
+}
+
+fn compose_me(input: &str) -> String {
+    input.to_string() + " world!"
+}
+
+fn replace_me(input: &str) -> String {
+    input.replace("cars", "balloons")
+}
+
+// there is also another way to replace the string, that is, use regex
+use regex::Regex;
+fn replace_regex(input: &str) -> String {
+    let re = Regex::new(r"[cars]").unwrap();
+    let res = re.replace_all(input, "balloons");
+    res
+}
+```
 
 ## Day 3 2022/11/3
 
