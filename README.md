@@ -30,6 +30,55 @@
 
 今天完成了Rust实验环境的配置。于此同时，开始完成rustlings的实验，目前已经完成1/3，在Rust的移动语义部分还是较为卡壳，因此还需要对Rust的move semantic进行进一步的学习以加深对移动语义的理解。
 
+#### Notes:
+
+在quiz1中，我们实现了一个最为基础的计算价格的函数，但是注意该函数只能返回类型为`i32`的值，因此不能用于处理较复杂的情形，比如当输入值不合法（例如负数），后续会学到利用`Result`来处理结果。
+
+在primitive_types中，注意只有`char`类型的变量才能够使用`is_numeric()`和`is_alphabetical()` API.
+具体可以参考[link](https://doc.rust-lang.org/std/primitive.char.html#method.is_numeric)
+
+`vector` initialization:
+
+```rust
+let a = vec![1, 2, 3, 4]; // create vector with 4 values
+let b = vec![1; 100]; // in Rust, value first, create a vector with size of 100 and all values equal to 1
+let c: Vec<i32> = Vec::new(); // this is also a way to creat the vector
+
+fn zeros(size: u32) -> Vec<i32> {
+    let mut zero_vec: Vec<i32> = Vec::with_capacity(size as usize); // this is another way to init vec
+    for i in 0..size {
+        zero_vec.push(0);
+    }
+    zero_vec
+}
+```
+
+在Rust中，有Vec和slice类型，在上例的vector a中，可以通过`&a[1..=3]`取出其中特定的切片
+
+```rust
+let a = vec![1, 2, 3, 4, 5];
+let new_slice = &a[1..=3];
+assert_eq!([2, 3, 4], new_slice);
+```
+
+在vec2中，有两种方法批量修改vec的值：
+
+```rust
+fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
+    for in in v.iter_mut() {
+        *i *= 2;
+    }
+}
+
+fn vec_map(v: &Vec<i32>) -> Vec<i32> {
+    v.iter().map(|num| {
+        num * 2 // closure of this
+    }).collect()
+}
+```
+
+
+
 ## Day 3 2022/11/3
 
 ### OS Training Camp
