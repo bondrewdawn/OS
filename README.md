@@ -29,3 +29,9 @@
 ### OS Training Camp
 
 今天完成了Rust实验环境的配置。于此同时，开始完成rustlings的实验，目前已经完成1/3，在Rust的移动语义部分还是较为卡壳，因此还需要对Rust的move semantic进行进一步的学习以加深对移动语义的理解。
+
+## Day 3 2022/11/3
+
+### OS Training Camp
+
+今日进度：今天完成了Rustlings的enums，structs，options等小节，Rust中的errors handling较难。
