@@ -153,11 +153,11 @@ for fruit in fruit_kinds {
 
 上述代码段中的第二部分。[link to hashmap2](./rustlings/exercises/hashmaps/hashmaps2.rs)
 
+I don't know how to implement HashMap3, so just reference to reddit.[[link to hashmap3](./rustlings/exercises/hashmaps/hashmaps3.rs)] [[reddit refer](https://www.reddit.com/r/rust/comments/w4vf5a/idiomatic_hashmap_access_from_rustlings_exercise/)] [[stackoverflow refer](https://stackoverflow.com/questions/73294897/correct-answer-at-rustlings-course-but-not-happy-with-it)]
+
 在Rust中，当处理Options时，为了方便得到Ok()中的值，通常使用`unwrap()`来获得。此处对unwrap方法存疑。
 
 [link to options3](./rustlings/exercises/options/options3.rs)中，完全依靠编译器编程。
-
-I don't know how to implement HashMap3, so just reference to reddit.[link to hashmap3](./rustlings/exercises/hashmaps/hashmaps3.rs)
 
 Rust中的errors handling较难。
 
@@ -170,9 +170,9 @@ fn main() -> Result<(), Box<dyn error::error>> {
 }
 ```
 
-There are two different possible `Result` types produced within `main()`, which are propagated using `?` operators.
+There are two different possible `Result` types produced within `main()`, which are propagated using `?` operators. [? mark](https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html)
 
-Under the hood, the `?` operator calls `From::from` on the error value to convert it to a boxed trait object, a `Box<dyn error::Error>`. This boxed trait object is polymorphic, and since all errors implement the `error::Error` trait, we can capture lots of different errors in one "Box" object.
+Under the hood, the `?` operator calls `From::from` on the error value to convert it to a boxed trait object, a `Box<dyn error::Error>`. This boxed trait object is polymorphic, and since all errors implement the `error::Error` trait, we can capture lots of different errors in one "Box" object. [boxing errors](https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html)
 
 ## Day 4 2022/11/4
 
