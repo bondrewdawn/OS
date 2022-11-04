@@ -101,11 +101,57 @@ fn replace_regex(input: &str) -> String {
 }
 ```
 
+Rust中，String和string_slice傻傻分不清：
+
+```rust
+fn string_slice(arg: &str) {
+    println!("{}", arg);
+}
+fn string(arg: String) {
+    println!("{}", arg);
+}
+
+fn main() {
+    string_slice("blue");
+    string("red".to_string());
+    string("red".into());
+    string("red".to_owned()); // 需要注意的是，在类型转换时，最好使用`to_owned()`,仅仅分配一个buffer。[参考](https://users.rust-lang.org/t/to-string-vs-to-owned-for-string-literals/1441/5#:~:text=I%20now%20strongly%20prefer%20to_owned()%20for%20string%20literals%20over%20either%20of%20to_string()%20or%20into().)
+    string(String::from("hi"));
+    string("rust is fun!".to_owned());
+    string("nice weather".into());
+    string(format!("Interpolation {}", "Station"));
+    string_slice(&String::from("abc")[0..1]);
+    string_slice(" hello there ".trim());
+    string("Happy Monday!".to_string().replace("Mon", "Fri"));
+    string("mY sHiFt KeY iS sTicKY".to_lowercase());
+}
+```
+
 ## Day 3 2022/11/3
 
 ### OS Training Camp
 
-今日进度：今天完成了Rustlings的enums，structs，options等小节，Rust中的errors handling较难。
+今日进度：今天完成了Rustlings的enums，structs，options等小节.
+
+`HashMap` in Rust. [link to hashmap](./rustlings/exercises/hashmaps/hashmaps1.rs)
+
+```rust
+let map: HashMap<String, i32> = HashMap::new();
+map.insert(String::from("apple"), 3);
+map.insert(String::from("mongo"), 2);
+
+
+// remember the following
+for fruit in fruit_kinds {
+    if !map.contains_key(&fruit) {
+        map.insert(fruit, 11);   // [link to hashmap2](./rustlings/exercises/hashmaps/hashmaps2.rs)
+    }
+}
+```
+
+I don't know how to implement HashMap3, so just reference to reddit.[link to hashmap3](./rustlings/exercises/hashmaps/hashmaps3.rs)
+
+Rust中的errors handling较难。
 
 ```rust
 fn main() -> Result<(), Box<dyn error::error>> {
