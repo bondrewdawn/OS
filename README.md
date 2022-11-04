@@ -115,7 +115,7 @@ fn main() {
     string_slice("blue");
     string("red".to_string());
     string("red".into());
-    string("red".to_owned()); // 需要注意的是，在类型转换时，最好使用`to_owned()`,仅仅分配一个buffer。[参考](https://users.rust-lang.org/t/to-string-vs-to-owned-for-string-literals/1441/5#:~:text=I%20now%20strongly%20prefer%20to_owned()%20for%20string%20literals%20over%20either%20of%20to_string()%20or%20into().)
+    string("red".to_owned()); // 需要注意的是，在类型转换时，最好使用`to_owned()`,仅仅分配一个buffer。
     string(String::from("hi"));
     string("rust is fun!".to_owned());
     string("nice weather".into());
@@ -126,6 +126,8 @@ fn main() {
     string("mY sHiFt KeY iS sTicKY".to_lowercase());
 }
 ```
+
+需要注意的是，在类型转换时，最好使用`to_owned()`,仅仅分配一个buffer。[参考](https://users.rust-lang.org/t/to-string-vs-to-owned-for-string-literals/1441/5#:~:text=I%20now%20strongly%20prefer%20to_owned()%20for%20string%20literals%20over%20either%20of%20to_string()%20or%20into().)
 
 ## Day 3 2022/11/3
 
@@ -144,10 +146,16 @@ map.insert(String::from("mongo"), 2);
 // remember the following
 for fruit in fruit_kinds {
     if !map.contains_key(&fruit) {
-        map.insert(fruit, 11);   // [link to hashmap2](./rustlings/exercises/hashmaps/hashmaps2.rs)
+        map.insert(fruit, 11);   // [link to hashmap2]
     }
 }
 ```
+
+上述代码段中的第二部分。[link to hashmap2](./rustlings/exercises/hashmaps/hashmaps2.rs)
+
+在Rust中，当处理Options时，为了方便得到Ok()中的值，通常使用`unwrap()`来获得。此处对unwrap方法存疑。
+
+[link to options3](./rustlings/exercises/options/options3.rs)中，完全依靠编译器编程。
 
 I don't know how to implement HashMap3, so just reference to reddit.[link to hashmap3](./rustlings/exercises/hashmaps/hashmaps3.rs)
 
