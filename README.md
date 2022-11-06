@@ -179,3 +179,9 @@ Under the hood, the `?` operator calls `From::from` on the error value to conver
 ### Rustlings
 
 今天需要完成rustlings中的所有练习题，与此同时，截止到5号，完成rustlings的所有总结。
+
+## Day 6 2022/11/6
+
+### Rustlings
+
+今天完成了Rustlings中thread章节之前的所有内容。对Trait，以及一些智能指针有了一定的认识。
