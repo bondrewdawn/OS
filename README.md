@@ -178,10 +178,85 @@ Under the hood, the `?` operator calls `From::from` on the error value to conver
 
 ### Rustlings
 
-今天需要完成rustlings中的所有练习题，与此同时，截止到5号，完成rustlings的所有总结。
+今天需要完成rustlings中的所有练习题，与此同时，尝试完成rustlings的所有总结。
 
 ## Day 6 2022/11/6
 
 ### Rustlings
 
 今天完成了Rustlings中thread章节之前的所有内容。对Trait，以及一些智能指针有了一定的认识。
+
+In macro chapters, remeber the macro should be declared before call. To a certain extent, this is just like C/C++ function call. :)
+
+```rust
+#[macro_use] // notice the use of #[macro_use]
+mod macros {
+    macro_rules! my_macro {
+        () => {
+            println!("Check out my macro!");
+        };
+    }
+}
+
+fn main() {
+    my_macro!();
+}
+```
+
+## Day 7 2022/11/7
+
+### Rustlings
+
+Rust中的iterator真的让人头大。
+
+```rust
+fn count_iter(map: &HashMap<String, Progress>, value: Progress) -> usize {
+    map.values().into_iter().filter(|&v| v == &value).count()
+}
+
+fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
+    let mut count = 0;
+    for map in collection {
+        for val in map.values() {
+            if val == &value {
+                count += 1;
+            }
+        }
+    }
+    count
+}
+
+fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
+    collection.iter().map(|m| count_iterator(&m, value)).sum()
+}
+```
+
+## Day 8 2022/11/8
+
+```shell
+🎉 All exercises completed! 🎉
+
++----------------------------------------------------+
+|          You made it to the Fe-nish line!          |
++--------------------------  ------------------------+
+                          \\/
+     ▒▒          ▒▒▒▒▒▒▒▒      ▒▒▒▒▒▒▒▒          ▒▒
+   ▒▒▒▒  ▒▒    ▒▒        ▒▒  ▒▒        ▒▒    ▒▒  ▒▒▒▒
+   ▒▒▒▒  ▒▒  ▒▒            ▒▒            ▒▒  ▒▒  ▒▒▒▒
+ ░░▒▒▒▒░░▒▒  ▒▒            ▒▒            ▒▒  ▒▒░░▒▒▒▒
+   ▓▓▓▓▓▓▓▓  ▓▓      ▓▓██  ▓▓  ▓▓██      ▓▓  ▓▓▓▓▓▓▓▓
+     ▒▒▒▒    ▒▒      ████  ▒▒  ████      ▒▒░░  ▒▒▒▒
+       ▒▒  ▒▒▒▒▒▒        ▒▒▒▒▒▒        ▒▒▒▒▒▒  ▒▒
+         ▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▒▒▓▓▒▒▒▒▒▒▒▒
+           ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+             ▒▒▒▒▒▒▒▒▒▒██▒▒▒▒▒▒██▒▒▒▒▒▒▒▒▒▒
+           ▒▒  ▒▒▒▒▒▒▒▒▒▒██████▒▒▒▒▒▒▒▒▒▒  ▒▒
+         ▒▒    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒    ▒▒
+       ▒▒    ▒▒    ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒    ▒▒    ▒▒
+       ▒▒  ▒▒    ▒▒                  ▒▒    ▒▒  ▒▒
+           ▒▒  ▒▒                      ▒▒  ▒▒
+
+We hope you enjoyed learning about the various aspects of Rust!
+If you noticed any issues, please don't hesitate to report them to our repo.
+You can also contribute your own exercises to help the greater community!
+```
