@@ -233,6 +233,15 @@ fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Pr
 
 ## Day 8 2022/11/8
 
+Rust feature(OOP: T):
+    where T: encapsulation + polymorphism + (inheritance)
+
+1. encapsulation
+    * We have structs and enums to have the 
+2. polymorphism
+    * Like the trait
+
+
 ```shell
 🎉 All exercises completed! 🎉
 
@@ -260,3 +269,7 @@ We hope you enjoyed learning about the various aspects of Rust!
 If you noticed any issues, please don't hesitate to report them to our repo.
 You can also contribute your own exercises to help the greater community!
 ```
+
+## Day 9 2022/11/9
+
+Read the xv6 book, Here are some [notes](./xv6-notes.md) of xv6.
