@@ -43,3 +43,11 @@ if (pid > 0) {
 ```
 
 The *exit* system call causes the calling process to stop executing and to release resources such as memory and open files. Exit takes an integer status argument, conventionally 0 to indicate success and 1 to indicate failure. The *wait* system call returns the pid of an exited child of the current process and copies the exit status of the child to the address passed to wait; if none of the caller's children has exited, *wait* waits for one to do so. If the parent doesn't care about the exit status of a child, it can pass a 0 address to *wait*.
+
+In the example, the output lines
+> parent : child=1234
+> child : exiting
+might come out in either order, depending on whether the parent or child gets to its *printf* call first. After the child exits the parent's *wait* returns, causing the parent to print
+> parent: child 1234 is done
+
+Although the child has the same memory contents as the parent initially, the parent and child are executing with different memory and different registers: changing a variable in one does not affect the other. For example, when the return value of *wait* is stored into *pid* in the parent process, it doesn't change the variable *pid* in the child. The value of *pid* in the child will still be zero.
